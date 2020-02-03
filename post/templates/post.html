@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1>{{ Post.title }}</h1>
+{% endblock %}
+
+{% block content %}
+<section>
+	{{ Post.published_date }}
+</section>
+<section>
+	{{ Post.text }}
+</section>
+
+<section>
+	{{ Post.author }}
+</section>
+<td><a href="{% url = "post-list" %}">Back</a></td>
+{% endblock %}

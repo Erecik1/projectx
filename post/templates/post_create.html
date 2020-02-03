@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1 id="naglowek">Add Post</h1>
+{% endblock %}
+
+{% block content %}
+<section>
+	<form name="form" actions="" method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" name="submit" value="Safe"/>
+	</form>
+</section>
+<td><a href="{% url "post-list" %}">{{ "Back" }}</a></td>
+{% endblock %}
