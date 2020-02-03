@@ -7,7 +7,7 @@ from django.urls.base import reverse_lazy
 def artykul_create(request):
     form = ArtykulForm()
     if request.POST:
-        form = ArtykulForm(request.POST)
+        form = ArtykulForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect(reverse_lazy('artykul-list'))
@@ -21,9 +21,8 @@ def artykuly(request):
         if form.is_valid():
             pharse = form.cleaned_data.get("pharse", "artykul-list")
             
-    lista_artykulow = Artykul.objects.filter(Q(tytul__icontains=pharse)
-                                             |Q(autor__icontains=pharse)
-                                             |Q(tresc__icontains=pharse))
+    lista_artykulow = Artykul.objects.filter(Q(Title__icontains=pharse)
+                                             |Q(Description__icontains=pharse))
     return render(request,
                   template_name='artykul/artykuly.html',
                   context={'artykuly':lista_artykulow,

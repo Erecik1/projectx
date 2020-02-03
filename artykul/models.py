@@ -1,10 +1,15 @@
 from django.db import models
+from django.utils import timezone
 
 class Artykul(models.Model):
-    tytul = models.CharField(max_length=1024)
-    opis = models.TextField()
-    file = models.FileField(upload_to='documents/')
-    data_publikacji = models.DateTimeField()
-    
+    Title = models.CharField(max_length=1024)
+    Description = models.TextField()
+    File = models.FileField(upload_to='documents/%Y/%m/%d')
+    Date = models.DateTimeField(default=timezone.now)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
     def __str__(self):
         return self.tytul
