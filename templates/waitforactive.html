@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block extrahead %}
+setTimeout(function() {
+     $.get("{% url 'index' %}")
+}, 5000);
+{% endblock %}
+<h1>Please confirm your email address to complete the registration</h1>>

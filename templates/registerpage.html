@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'loginpage.css' %}" xmlns="http://www.w3.org/1999/html">
+{% endblock %}
+{% block content %}
+<div class="login-page">
+  <div class="form">
+<form method="post" class="register-form">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Sign up</button>
+<p class="message">Already registered? <a href="{% url 'signin' %}">Sign In</a></p>
+</form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1>{{ artykul.tytul }}</h1>
+{% endblock %}
+
+{% block content %}
+<section>
+	{{ artykul.data_publikacji }}
+</section>
+<section>
+	{{ artykul.treść }}
+</section>
+
+<section>
+	{{ artykul.autor }}
+</section>
+<td><a href="{% url "artykul-list" %}">{{ "powrot" }}</a></td>
+{% endblock %}

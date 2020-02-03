@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1>Dodaj artykuł</h1>
+{% endblock %}
+
+{% block content %}
+<section>
+	<form name="form" actions="" method="post">
+	{% csrf_token %}
+	{{ form }}
+	<input type="submit" name="submit" value="Zapisz"/>
+	</form>
+</section>
+<td><a href="{% url "artykul-list" %}">{{ "powrot" }}</a></td>
+{% endblock %}
